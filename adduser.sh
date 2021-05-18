@@ -1,25 +1,30 @@
 #!/bin/bash
 
-read -p "Username - " UNAME
-read -ps "Password - " UPASS
+flag=false
+while [ $flag != true ]; do
+  echo
+  read -p "Username: " USERNAME
+  adduser $USERNAME --disabled-login --gecos GECOS >/dev/null
+  if [ $? == 0 ]; then
+    flag=true
+  fi
+done
 
-adduser $UNAME >/dev/null 2>/dev/null <<_INPUT_
-$UPASS
-$UPASS
+flag=false
+while [ $flag != true ]; do
+  echo
+  passwd $USERNAME >/dev/null
+  if [ $? == 0 ]; then
+    flag=true
+  fi
+done
 
-
-
-
-
-y
-_INPUT_
-unset UPASS
-
-usermod -aG sudo $UNAME
+usermod -aG sudo $USERNAME
 
 echo
-echo "Run the command given below to switch user -"
 tput setaf 3
-echo "su - $UNAME"
+echo "su - $USERNAME"
 tput sgr0
-unset UNAME
+unset USERNAME
+
+echo
