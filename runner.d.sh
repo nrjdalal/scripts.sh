@@ -18,6 +18,13 @@ echo
 read -p "would you like to configure the runner: " ASK
 
 if [[ $ASK == 'y' || $ASK == 'Y' ]]; then
-  echo
   ./config.sh
+fi
+
+echo
+read -p "would you like to start the runner: " ASK
+
+if [[ $ASK == 'y' || $ASK == 'Y' ]]; then
+  sudo ./svc.sh install
+  sudo ./svc.sh start
 fi
