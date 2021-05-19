@@ -8,6 +8,7 @@ read -p "enter the project name: " PROJECT
 mkdir -p /var/www/$PROJECT.git/dev
 cd /var/www/$PROJECT.git
 
+echo
 curl -o actions-runner-linux-x64-2.278.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.278.0/actions-runner-linux-x64-2.278.0.tar.gz
 
 tar xzf ./actions-runner-linux-x64-2.278.0.tar.gz
@@ -28,3 +29,5 @@ if [[ $ASK == 'y' || $ASK == 'Y' ]]; then
   sudo ./svc.sh install
   sudo ./svc.sh start
 fi
+
+echo
