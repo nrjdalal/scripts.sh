@@ -3,7 +3,7 @@
 set -e
 
 echo
-read -p "enter the project name: " PROJECT
+read -p "$(tput setaf 3)Enter the project name: $(tput sgr0)" PROJECT
 
 mkdir -p /var/www/$PROJECT.git/dev
 cd /var/www/$PROJECT.git
@@ -16,14 +16,14 @@ tar xzf ./actions-runner-linux-x64-2.278.0.tar.gz
 rm ./actions-runner-linux-x64-2.278.0.tar.gz
 
 echo
-read -p "would you like to configure the runner: " ASK
+read -p "$(tput setaf 3)Would you like to configure the runner? $(tput sgr0)" ASK
 
 if [[ $ASK == 'y' || $ASK == 'Y' ]]; then
   ./config.sh
 fi
 
 echo
-read -p "would you like to start the runner: " ASK
+read -p "$(tput setaf 3)Would you like to start the runner? $(tput sgr0)" ASK
 
 if [[ $ASK == 'y' || $ASK == 'Y' ]]; then
   sudo ./svc.sh install
