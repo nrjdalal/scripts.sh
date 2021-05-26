@@ -5,7 +5,7 @@ echo
 read -p "Enter domain name ~ " DOMAIN
 read -p "Enter proxy :port ~ " PORT
 
-sudo mkdir /var/www/$DOMAIN
+sudo mkdir -p /var/www/$DOMAIN
 
 sudo cat >/var/www/$DOMAIN/index.js <<INDEX.JS
 const express = require('express')
