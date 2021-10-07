@@ -31,6 +31,4 @@ module.exports = {
 }
 next.config.js
 
-git rm -r --cached .  
-git add -A
-git commit -m 'Initial commit'
+git rm -r --cached yarn.lock
