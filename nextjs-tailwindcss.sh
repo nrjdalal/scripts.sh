@@ -1,11 +1,21 @@
 yarn create next-app -e with-tailwindcss .
 
-echo -e "\n# lock files\npackage-lock.json\nyarn.lock" >>.gitignore
+cat >>.gitignore <<.gitignore
+
+# lock files
+package-lock.json
+yarn.lock
+.gitignore
 
 yarn add @tailwindcss/typography @tailwindcss/forms @tailwindcss/line-clamp @tailwindcss/aspect-ratio
 
 mkdir -p styles
-echo -e "@tailwind base;\n@tailwind components;\n@tailwind utilities;" >>styles/globals.css
+
+cat >>styles/globals.css <<globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+globals.css
 
 sed -i '' 's#tailwindcss/tailwind.css#styles/globals.css#g' pages/_app.js
 
