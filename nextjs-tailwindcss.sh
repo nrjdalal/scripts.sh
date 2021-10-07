@@ -33,4 +33,6 @@ module.exports = {
 }
 next.config.js
 
-yarn dev
+git rm -r --cached .  
+git add -A
+git commit -m 'Initial commit'
