@@ -19,18 +19,18 @@ globals.css
 
 sed -i '' 's#tailwindcss/tailwind.css#styles/globals.css#g' pages/_app.js
 
-cat >>jsconfig.json <<CREATE
+cat >>jsconfig.json <<jsconfig.json
 {
   "compilerOptions": {
     "baseUrl": "."
   }
 }
-CREATE
+jsconfig.json
 
-cat >>next.config.js <<CREATE
+cat >>next.config.js <<next.config.js
 module.exports = {
   reactStrictMode: true,
 }
-CREATE
+next.config.js
 
 yarn dev
