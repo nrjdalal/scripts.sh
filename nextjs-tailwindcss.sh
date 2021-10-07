@@ -4,7 +4,7 @@ yarn add @tailwindcss/typography @tailwindcss/forms @tailwindcss/line-clamp @tai
 echo -e "\n# lock files\npackage-lock.json\nyarn.lock" >>.gitignore
 
 mkdir -p styles
-echo -e "@tailwind base;\n@tailwind components;\n@tailwind utilities;" >>styles/global.css
+echo -e "@tailwind base;\n@tailwind components;\n@tailwind utilities;" >>styles/globals.css
 
 sed -i '' 's#tailwindcss/tailwind.css#styles/globals.css#g' pages/_app.js
 
