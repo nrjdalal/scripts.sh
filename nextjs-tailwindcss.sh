@@ -1,9 +1,6 @@
-yarn create next-app -e with-tailwindcss .
-yarn add @tailwindcss/typography @tailwindcss/forms @tailwindcss/line-clamp @tailwindcss/aspect-ratio
+yarn create next-app --typescript .
 
-mkdir -p styles
-sed -i '' 's#tailwindcss/tailwind.css#styles/globals.css#g' pages/_app.js
-
+# updating .gitignore
 cat >>.gitignore <<.gitignore
 
 # lock files
@@ -11,24 +8,21 @@ package-lock.json
 yarn.lock
 .gitignore
 
-cat >>styles/globals.css <<globals.css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-globals.css
+# purging unnecessary files
+rm styles/Home.module.css
+git rm --cached package-lock.json
+git rm --cached yarn.lock
 
-cat >>jsconfig.json <<jsconfig.json
-{
-  "compilerOptions": {
-    "baseUrl": "."
-  }
-}
-jsconfig.json
+# adding dependencies
+yarn add -D tailwindcss postcss autoprefixer prettier prettier-plugin-tailwindcss
 
-cat >>next.config.js <<next.config.js
-module.exports = {
-  reactStrictMode: true,
-}
-next.config.js
+# initializing tailwindcss with postcss
+npx tailwindcss init -p
 
-git rm -r --cached yarn.lock
+# updating files for compatibility
+curl -s https://raw.githubusercontent.com/vercel/next.js/canary/examples/with-tailwindcss/pages/index.tsx >pages/index.tsx
+curl -s https://raw.githubusercontent.com/vercel/next.js/canary/examples/with-tailwindcss/styles/globals.css >styles/globals.css
+curl -s https://raw.githubusercontent.com/vercel/next.js/canary/examples/with-tailwindcss/tailwind.config.js >tailwind.config.js
+
+# personal preferences
+sed -i '' 's#"compilerOptions": {#"compilerOptions": {\n    "baseUrl": ".",#g' tsconfig.json
