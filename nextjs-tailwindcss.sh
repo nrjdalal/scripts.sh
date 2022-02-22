@@ -1,4 +1,4 @@
- yarn create next-app --typescript .
+yarn create next-app --typescript .
 
 # updating .gitignore
 cat >>.gitignore <<.gitignore
@@ -7,20 +7,6 @@ cat >>.gitignore <<.gitignore
 package-lock.json
 yarn.lock
 .gitignore
-
-cat >README.md <<README.md
-## Next.js + Tailwind CSS
-
-This is a custom [Next.js](https://nextjs.org/) project bootstrapped with
-
-```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/nrjdalal/scripts.sh/master/nextjs-tailwindcss.sh)"
-```
-
-## Resources
-
-- Click [here](https://vercel.com/new) to deploy on Vercel
-README.md
 
 # purging unnecessary files
 rm styles/Home.module.css
