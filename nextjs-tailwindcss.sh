@@ -9,7 +9,6 @@ package-lock.json
 
 # purging unnecessary files
 rm styles/Home.module.css
-git rm --cached yarn.lock
 
 # adding dependencies
 yarn add -D tailwindcss postcss autoprefixer prettier prettier-plugin-tailwindcss
