@@ -5,7 +5,6 @@ cat >>.gitignore <<.gitignore
 
 # lock files
 package-lock.json
-yarn.lock
 .gitignore
 
 # purging unnecessary files
