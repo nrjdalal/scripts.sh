@@ -24,4 +24,4 @@ curl -s https://raw.githubusercontent.com/vercel/next.js/canary/examples/with-ta
 # personal preferences
 sed -i '' 's#"compilerOptions": {#"compilerOptions": {\n    "baseUrl": ".",#g' tsconfig.json
 yarn add -D @tailwindcss/forms @tailwindcss/line-clamp @tailwindcss/typography
-sed -i '' "s#plugins: \[\],#plugins: \[\n    '@tailwindcss/forms',\n    '@tailwindcss/line-clamp',\n    '@tailwindcss/typography',\n  \],#g" tailwind.config.js
+sed -i '' "s#plugins: \[\],#plugins: \[\n    require('@tailwindcss/forms'),\n    require('@tailwindcss/line-clamp'),\n    require('@tailwindcss/typography'),\n  \],#g" tailwind.config.js
